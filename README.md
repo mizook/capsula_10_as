@@ -95,26 +95,20 @@ El script de Python registra asistencias cada **10 segundos** automáticamente.
 ### Crear el entorno virtual
 
 ```
-
 python -m venv venv
 source venv/bin/activate # Windows: venv\Scriptsctivate
-
 ```
 
 ### Instalar dependencias de Python
 
 ```
-
 pip install requests
-
 ```
 
 ### Ejecutar el script de Python
 
 ```
-
 python attendance_script.py
-
 ```
 
 El script enviará asistencias de forma automática cada 10 segundos a la API.
