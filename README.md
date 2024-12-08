@@ -60,7 +60,7 @@ source migrations/populate_mysql.sql;
 ### En student.routes.js y attendance.routes.js cambia la constante:
 
 ```
-const PROD_DB = "psql"; // O cambia a "mysql"
+const PROD_DB = psql_model; // O cambia a mysql_model;
 ```
 
 ### Iniciar la API
@@ -95,26 +95,20 @@ El script de Python registra asistencias cada **10 segundos** automáticamente.
 ### Crear el entorno virtual
 
 ```
-
 python -m venv venv
 source venv/bin/activate # Windows: venv\Scriptsctivate
-
 ```
 
 ### Instalar dependencias de Python
 
 ```
-
 pip install requests
-
 ```
 
 ### Ejecutar el script de Python
 
 ```
-
 python attendance_script.py
-
 ```
 
 El script enviará asistencias de forma automática cada 10 segundos a la API.

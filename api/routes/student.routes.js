@@ -3,12 +3,10 @@ import StudentModel from "../models/student.model.js";
 
 import { postgres, mysql } from "../config/db.js";
 
-const PROD_DB = "psql";
-
 const psql_model = StudentModel(postgres);
 const mysql_model = StudentModel(mysql);
 
-const read_db = PROD_DB === "psql" ? psql_model : mysql_model;
+const PROD_DB = psql_model;
 
 const router = express.Router();
 
@@ -32,7 +30,7 @@ const router = express.Router();
  */
 router.get("/", async (req, res) => {
   try {
-    const students = await read_db.findAll();
+    const students = await PROD_DB.findAll();
     res.status(200).json(students);
   } catch (error) {
     res

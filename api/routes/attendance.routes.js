@@ -3,12 +3,10 @@ import AttendanceModel from "../models/attendance.model.js";
 
 import { postgres, mysql } from "../config/db.js";
 
-const PROD_DB = "psql";
-
 const psql_model = AttendanceModel(postgres);
 const mysql_model = AttendanceModel(mysql);
 
-const read_db = PROD_DB === "psql" ? psql_model : mysql_model;
+const PROD_DB = psql_model;
 
 const router = express.Router();
 
@@ -52,7 +50,7 @@ const router = express.Router();
  */
 router.get("/", async (req, res) => {
   try {
-    const attendances = await read_db.findAll();
+    const attendances = await PROD_DB.findAll();
     res.status(200).json(attendances);
   } catch (error) {
     res
