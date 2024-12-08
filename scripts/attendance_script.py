@@ -3,7 +3,7 @@ import time
 import random
 
 API_URL = "http://localhost:3000/attendance"
-REQUEST_INTERVAL = 5
+REQUEST_INTERVAL = 10
 CLASS_NAMES = [
     "Matematicas", 
     "Historia", 
@@ -26,17 +26,17 @@ CLASS_NAMES = [
     "Inteligencia Artificial", 
     "Data Science"
 ]
-STUDENT_IDS = [1, 2, 3]
+STUDENT_IDS = [1, 2]
 
 def send_attendance_requests():
     while True:
         student_id = random.choice(STUDENT_IDS)
         class_name = random.choice(CLASS_NAMES)
         
-        attendance = {"studentId": student_id, "className": class_name}
+        attendance = { "studentid": student_id, "classname": class_name}
         
         try:
-            response = requests.post(API_URL, json=attendance)
+            response = requests.post(API_URL, json=attendance)  # El JSON se envía correctamente
             print("Nueva asistencia registrada:", response.json())
         except Exception as e:
             print("Error al registrar asistencia:", e)

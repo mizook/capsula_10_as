@@ -75,10 +75,10 @@ router.get("/", async (req, res) => {
  *           schema:
  *             type: object
  *             properties:
- *               studentId:
+ *               studentid:
  *                 type: integer
  *                 description: ID del estudiante
- *               className:
+ *               classname:
  *                 type: string
  *                 description: Nombre de la clase
  *     responses:
@@ -86,19 +86,20 @@ router.get("/", async (req, res) => {
  *         description: Asistencia creada con éxito
  */
 router.post("/", async (req, res) => {
-  const { studentId, className } = req.body;
+  const { studentid, classname } = req.body;
+  console.log(req.body);
 
   const transaction_psql = await postgres.transaction();
   const transaction_mysql = await mysql.transaction();
 
   try {
     const attendance_psql = await psql_model.create(
-      { studentId, className },
+      { studentid, classname },
       { transaction: transaction_psql }
     );
 
     const attendance_mysql = await mysql_model.create(
-      { studentId, className },
+      { studentid, classname },
       { transaction: transaction_mysql }
     );
 

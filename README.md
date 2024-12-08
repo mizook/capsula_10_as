@@ -90,7 +90,7 @@ POST /attendance - Crea una nueva asistencia en ambas DB
 
 ## 🔥 **5. Script de Python**
 
-El script de Python registra asistencias cada **5 segundos** automáticamente.
+El script de Python registra asistencias cada **10 segundos** automáticamente.
 
 ### Crear el entorno virtual
 
@@ -117,7 +117,7 @@ python attendance_script.py
 
 ```
 
-El script enviará asistencias de forma automática cada 5 segundos a la API.
+El script enviará asistencias de forma automática cada 10 segundos a la API.
 
 ---
 
@@ -134,7 +134,7 @@ API_URL = "http://localhost:3000/attendance"
 ### Configuración del tiempo entre peticiones (en segundos)
 
 ```
-REQUEST_INTERVAL = 5
+REQUEST_INTERVAL = 10
 ```
 
 ### Lista de nombres de clases
@@ -167,7 +167,7 @@ CLASS_NAMES = [
 ### Lista de studentId de ejemplo
 
 ```
-STUDENT_IDS = [1, 2, 3, 4, 5]
+STUDENT_IDS = [1, 2]
 ```
 
 ---
