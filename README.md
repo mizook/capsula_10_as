@@ -21,8 +21,16 @@ cd capsula_10_as
 
 ### Instalar dependencias
 
+Dependencias de la API
+
 ```
 npm install
+```
+
+Dependencias del script de Python
+
+```
+pip install -r requirements.txt
 ```
 
 ### Configurar bases de datos
